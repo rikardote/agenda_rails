@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rfc: MyString
+  name: MyString
+  father_lastname: MyString
+  mother_lastname: MyString
+  fecha_nacimiento: 2016-05-22
+  type_id: 1
+
+two:
+  rfc: MyString
+  name: MyString
+  father_lastname: MyString
+  mother_lastname: MyString
+  fecha_nacimiento: 2016-05-22
+  type_id: 1

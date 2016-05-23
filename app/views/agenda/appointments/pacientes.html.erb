@@ -1,0 +1,20 @@
+<% if @patient.present? %>
+	<table class="table table-striped">
+		<thead>
+			<th>RFC</th>		
+			<th>Nombre</th>		
+			
+		</thead>
+		<tbody>
+			<% @patient.each do |patient| %>
+				<tr>
+				  <td>	<%= patient.rfc %> </td>
+					<td>  <%= patient.name %>	<%= patient.father_lastname %> <%= patient.mother_lastname %> </td>
+
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<%= link_to "Cancelar Registro", agenda_especialidad_medico_appointments_path%>

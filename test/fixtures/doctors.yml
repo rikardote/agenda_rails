@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_empledo: 
+  name,: MyString
+  father_lastname,: MyString
+  mother_lastname,: MyString
+  specialty_id: 
+
+two:
+  num_empledo: 
+  name,: MyString
+  father_lastname,: MyString
+  mother_lastname,: MyString
+  specialty_id: 

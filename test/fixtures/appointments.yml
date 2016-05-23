@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 
+  physician_id: 
+  fecha_inicial: 2016-05-22
+  fecha_final: 2016-05-22
+  horario: MyString
+
+two:
+  patient_id: 
+  physician_id: 
+  fecha_inicial: 2016-05-22
+  fecha_final: 2016-05-22
+  horario: MyString

@@ -1,0 +1,19 @@
+<div id="product-modal" class="modal fade load-form-modal  panelColorGreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Buscar Paciente</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag(pacientes_agenda_especialidad_medico_appointments_path, :method => "get", id: "search-form", :enforce_utf8 => false) do %>
+			<div class="col-md-4">
+				<%= text_field_tag :search, params[:search], class: "form-control",placeholder: "Buscar Paciente" %>
+			</div>
+			<%= submit_tag "Buscar", :name => nil, class: "btn btn-primary" %>
+		<% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>

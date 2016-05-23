@@ -1,0 +1,12 @@
+<%= simple_form_for @patient do |f| %>
+	<%= f.input :rfc, label: "RFC" %>
+	<%= f.input :name, label: "Nombres" %>
+	<%= f.input :father_lastname, label: "Apellido Paterno" %>
+	<%= f.input :mother_lastname, label: "Apellido Materno" %>
+	<%= f.collection_select :type_id, Type.order('code ASC'), :id, :types_with_desc, {prompt: "Selecciona un tipo"}, {class: "form-control"}%>
+	<%= f.input :fecha_nacimiento, as: :date, start_year: Date.today.year - 70,
+                              end_year: Date.today.year - 12, 
+                              order: [:day, :month, :year] %>
+
+	<%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

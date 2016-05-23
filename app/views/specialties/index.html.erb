@@ -1,0 +1,22 @@
+<h1 class="alert alert-success">Especialidades</h1>
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<th>Especialidad</th>		
+			<th>Accion</th>		
+		</thead>
+		<tbody>
+			<% @specialties.each do |specialty| %>
+				<tr>
+					<td>  <%= specialty.name %>	</td>
+					<td>	
+						<%=link_to "Mostrar", specialty_path(specialty) %> / 
+						<%=link_to "Editar", edit_specialty_path(specialty) %> / 
+						<%=link_to "Borrar", specialty_path(specialty), method: :delete, data: { confirm: "Estas seguro?" } %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%=link_to "Nueva Especialidad", new_specialty_path %>
+</div>

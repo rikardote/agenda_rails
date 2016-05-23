@@ -1,0 +1,52 @@
+<% if @leyenda.present?%>
+             <div class="alert alert-danger"><%= @leyenda %></div>
+            <% end %>
+<div class="col-md-4">
+    <div class="datepicker"></div>
+</div>
+<div class="col-md-8">
+    <div class="panel-group">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div align="center">
+            <%= link_to 'Agendar Cita', new_agenda_especialidad_medico_appointment_path(@specialty, @physician), remote: true, class: "btn btn-primary" %>
+          </div>
+        </div>
+     
+
+
+     <table class="table table-hover table-condensed">
+      <thead>
+        <th>Folio</th>
+        <th>Paciente</th>
+        <th>Horario</th>
+        <th>Accion</th>
+      </thead>
+      <tbody>
+       
+          <tr class='{{$tachado}}'>
+            <td>{{ $cita->id }}</td>
+          
+            <td>{{ $cita->paciente->apellido_pat }} {{ $cita->paciente->apellido_mat }} {{ $cita->paciente->nombres }} <br> <strong><small>{{$cita->paciente->rfc}} /{{$cita->paciente->tipo->code}}</small></strong></td>
+     		<td>{{ $cita->horario }}</td>
+            <td>
+
+            <a class="panelColorGreen" href="{{ route('admin.citas.concretada', [$medico->slug , $date, $cita->id]) }}">
+                <span class="fa fa-check-square-o fa-2x"></span>
+              </a>
+              <a class="load-form-modal panelColorGreen"
+                data-url="{{ route('admin.citas.edit', [$medico->slug , $date, $cita->id]) }}" 
+                data-toggle ="modal" data-target='#form-modal'><span class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></span>
+              </a> 
+
+              <a href="{{ route('admin.citas.destroy', [$medico->slug, $date, $cita->id]) }}" onclick="return confirm('Seguro desea eliminarlo?')"><span class="fa fa-trash fa-2x panelColorRed" aria-hidden="true"></span>
+              </a>
+
+            </td>
+          </tr>
+       
+      </tbody>
+    </table>
+   </div>
+    </div>
+</div>
