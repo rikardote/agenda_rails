@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :patients
   resources :physicians
   resources :specialties
-
+  root 'agenda#index'
  
   get 'agenda', to: 'agenda#index'
   #get 'agenda/:id/' => 'agenda#show', as: :show_agenda

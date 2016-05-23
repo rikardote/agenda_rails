@@ -9,3 +9,7 @@ $(document).on "page:change", ->
     changeMonth: true
     changeYear: true
     firstDay: 1
+    onSelect: ->
+    	Path = window.location.pathname
+	    window.open Path + '?date=' + @value, '_self', false
+    	return

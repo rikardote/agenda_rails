@@ -1,6 +1,3 @@
-<% if @leyenda.present?%>
-             <div class="alert alert-danger"><%= @leyenda %></div>
-            <% end %>
 <div class="col-md-4">
     <div class="datepicker"></div>
 </div>
@@ -13,7 +10,9 @@
           </div>
         </div>
      
-
+<% if @date.present?%>
+    <div class="alert alert-danger"><%= Date.parse(@date).strftime("%d/%m/%Y") %></div>
+<% end %>
 
      <table class="table table-hover table-condensed">
       <thead>

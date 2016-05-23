@@ -2,7 +2,9 @@ class Agenda::AppointmentsController < ApplicationController
   def index
     @specialty = Specialty.find(params[:especialidad_id])
     @physician = Physician.find(params[:medico_id])
-     
+    if params[:date]
+      @date = params[:date]
+    end
   end
 
   def show
@@ -11,6 +13,11 @@ class Agenda::AppointmentsController < ApplicationController
 
 
   def new
+    if params[:date]
+      @date = params[:date]
+    else
+      @date = "2015-05-30"
+    end
   end
 
   def create
