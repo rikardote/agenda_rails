@@ -1,20 +1,25 @@
 <% if @patient.present? %>
-	<table class="table table-striped">
-		<thead>
-			<th>RFC</th>		
-			<th>Nombre</th>		
-			
-		</thead>
-		<tbody>
-			<% @patient.each do |patient| %>
-				<tr>
-				  <td>	<%= patient.rfc %> </td>
-					<td>  <%= patient.name %>	<%= patient.father_lastname %> <%= patient.mother_lastname %> </td>
-
-				</tr>
+<strong>Pacientes: </strong>
+	<br>
+	<br>
+	<% @patient.each do |patient| %>
+		<%= patient.rfc %> 
+		<%= patient.name %>	<%= patient.father_lastname %> <%= patient.mother_lastname %>
+		
+			<%= form_tag(agenda_especialidad_medico_appointments_path, method: :post) do %>
+				<div class="form-group">
+					<%= text_field_tag :fecha_inicial, params[:date], class: "form-control", readonly: true %>
+				</div>
+				<div class="form-group">
+					<%= text_field_tag :horario, [],class: "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= submit_tag "Registrar", :name => nil, class: "btn btn-primary" %>
+				</div>
+				<%= hidden_field_tag :patient_id, patient.id %>
+				<%= hidden_field_tag :physician_id, params[:medico_id] %>
 			<% end %>
-		</tbody>
-	</table>
+	<% end %>
 <% end %>
 
 <%= link_to "Cancelar Registro", agenda_especialidad_medico_appointments_path%>

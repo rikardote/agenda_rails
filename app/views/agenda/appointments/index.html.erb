@@ -6,7 +6,8 @@
       <div class="panel panel-primary">
         <div class="panel-heading">
           <div align="center">
-            <%= link_to 'Agendar Cita', new_agenda_especialidad_medico_appointment_path(@specialty, @physician), remote: true, class: "btn btn-primary" %>
+         
+            <%= link_to 'Agendar Cita', new_agenda_especialidad_medico_appointment_path(@specialty, @physician, :date => @date), remote: true, class: "btn btn-primary" %>
           </div>
         </div>
      
@@ -22,12 +23,12 @@
         <th>Accion</th>
       </thead>
       <tbody>
-       
+       <% @appointments.each do |a| %>
           <tr class='{{$tachado}}'>
-            <td>{{ $cita->id }}</td>
+            <td><%= a.id %></td>
           
-            <td>{{ $cita->paciente->apellido_pat }} {{ $cita->paciente->apellido_mat }} {{ $cita->paciente->nombres }} <br> <strong><small>{{$cita->paciente->rfc}} /{{$cita->paciente->tipo->code}}</small></strong></td>
-     		<td>{{ $cita->horario }}</td>
+            <td><%= a.patient.name %> <%= a.patient.father_lastname %> <%= a.patient.mother_lastname %> <br> <strong><small><%= a.patient.rfc %> /<%a.patient.type %></small></strong></td>
+     		     <td><%= a.horario %></td>
             <td>
 
             <a class="panelColorGreen" href="{{ route('admin.citas.concretada', [$medico->slug , $date, $cita->id]) }}">
@@ -43,7 +44,7 @@
 
             </td>
           </tr>
-       
+       <% end %>
       </tbody>
     </table>
    </div>

@@ -11,20 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522082009) do
-
-  create_table "appointment", force: :cascade do |t|
-    t.integer  "patient_id"
-    t.integer  "physician_id"
-    t.date     "fecha_inicial"
-    t.date     "fecha_final"
-    t.string   "horario"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "appointment", ["patient_id"], name: "index_appointment_on_patient_id"
-  add_index "appointment", ["physician_id"], name: "index_appointment_on_physician_id"
+ActiveRecord::Schema.define(version: 20160524033847) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "patient_id"

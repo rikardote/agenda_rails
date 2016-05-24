@@ -1,5 +1,7 @@
 class Patient < ActiveRecord::Base
 	has_many :type
+	has_many :appointments
+	has_many :physicians, :through => :appointments
 
 	before_save :capitalize_attributes
 
