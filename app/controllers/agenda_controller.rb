@@ -1,7 +1,7 @@
 class AgendaController < ApplicationController
   def index
   	
-  	@specialties = Specialty.all
+  	@specialties = Specialty.all.order('name ASC')
   end
 
   

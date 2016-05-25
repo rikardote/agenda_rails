@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'agenda#index'
  
   get 'agenda', to: 'agenda#index'
-  #get 'agenda/:id/' => 'agenda#show', as: :show_agenda
+  
   namespace :agenda do
     resources :especialidad do
       resources :medico do

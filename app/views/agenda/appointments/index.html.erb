@@ -39,6 +39,7 @@
                 data-toggle ="modal" data-target='#form-modal'><span class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></span>
               </a> 
 
+              <%# link_to 'Eliminar', , method: :delete, data: { confirm: "Estas seguro?" } %>
               <a href="{{ route('admin.citas.destroy', [$medico->slug, $date, $cita->id]) }}" onclick="return confirm('Seguro desea eliminarlo?')"><span class="fa fa-trash fa-2x panelColorRed" aria-hidden="true"></span>
               </a>
 

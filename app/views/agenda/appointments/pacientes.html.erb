@@ -17,15 +17,27 @@
 							<%= text_field_tag :fecha_inicial, params[:date], class: "form-control", readonly: true %>
 						</div>
 						<div class="form-group">
-							<%= text_field_tag :horario, [],class: "form-control" %>
+						<% iden = patient.id*3 %>
+							<%= text_field_tag :horario, [],class: "form-control",id: iden %>
 						</div>
 						<div class="form-group">
 							<%= submit_tag "Registrar", :name => nil, class: "btn btn-primary" %>
 						</div>
 						<%= hidden_field_tag :patient_id, patient.id %>
 						<%= hidden_field_tag :physician_id, params[:medico_id] %>
+						 <script>
+							$('#<%= iden %>').timepicker({ 
+								'step': 20,
+							    'timeFormat': 'H:i',
+							    'disableTextInput': true,
+							    'disableTimeRanges': 
+							    [
+							    ['8am','10am'],
+				            	
+						        ]
+							});
+						</script> 
 					<% end %>
-
 				  </div>
 				</div>		
 			<% end %>

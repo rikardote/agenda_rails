@@ -54,6 +54,10 @@ class Agenda::AppointmentsController < ApplicationController
   end
 
   def destroy
+    @appointment = Appointment.find(params[:id]) 
+    @appointment.destroy
+    redirect_to agenda_especialidad_medico_appointments_path
+    flash[:danger] = "Cita Eliminada"
   end
 
  
