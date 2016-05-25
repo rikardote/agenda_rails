@@ -1,7 +1,8 @@
 class Patient < ActiveRecord::Base
 	has_many :type
 	has_many :appointments
-	has_many :physicians, :through => :appointments
+
+	belongs_to :type
 
 	before_save :capitalize_attributes
 
@@ -9,6 +10,9 @@ class Patient < ActiveRecord::Base
 
 	  	# Title is for the above case, the OP incorrectly had 'name'
 	  	where("rfc = upper(?)", "#{search}")
+	end
+	def fullname
+	  "#{name} #{father_lastname} #{mother_lastname}"
 	end
 
 

@@ -1,6 +1,6 @@
 class Physician < ActiveRecord::Base
   belongs_to :specialty
-  has_many :patients, :through => :appointments
+  #has_many :patients, :through => :appointments
 
   before_save :capitalize_attributes
 

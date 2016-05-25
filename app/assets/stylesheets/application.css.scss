@@ -11,22 +11,27 @@
  * file per style scope.
  *
  *= require jquery-ui/datepicker
+ *= require jquery-ui/ui-lightness
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 @import "bootstrap-sprockets";
+@import "bootswatch/superhero/variables";
 @import "bootstrap";
+@import "bootswatch/superhero/bootswatch"; 
 
 html {
   position: relative;
   min-height: 100%;
 }
 body {
-  background-color: #F1F1F1; 
+  background-color: #2B3E50; 
   font-family: 'Lato';
   margin-bottom: 60px;
+  padding: 70px;
 }
-       
+      
 .fa-btn {
   margin-right: 6px;
 }
@@ -60,24 +65,6 @@ color: red;
   to {
     visibility: hidden;
   }
-}
-
-.modal-content {
-  background-color: #0480be;
-  color: navy;
-}
-.modal-body {
-  background-color: #fff;
-
-}
-.panelColor{
-  color: white;
-}
-.panelColorGreen{
-  color: #337AB7;
-}
-.panelColorRed{
-  color: #B1103C;
 }
 
 
@@ -165,4 +152,11 @@ color: red;
 th.ui-datepicker-week-end,
 td.ui-datepicker-week-end {
     display: none;
+}
+.ui-datepicker a {
+    text-decoration: none!important;
+}
+
+.align-right{
+  align: right!important;
 }

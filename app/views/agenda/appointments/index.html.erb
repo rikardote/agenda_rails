@@ -7,14 +7,10 @@
         <div class="panel-heading">
           <div align="center">
          
-            <%= link_to 'Agendar Cita', new_agenda_especialidad_medico_appointment_path(@specialty, @physician, :date => @date), remote: true, class: "btn btn-primary" %>
+            <%= link_to 'Agendar Cita', new_agenda_especialidad_medico_appointment_path(@specialty, @physician, :date => @date), remote: true, class: "btn btn-primary " %>
+              <div class="label label-warning pull pull-right"><%= Date.parse(@date).strftime("%d/%m/%Y") %></div>
           </div>
         </div>
-     
-<% if @date.present?%>
-    <div class="alert alert-danger"><%= Date.parse(@date).strftime("%d/%m/%Y") %></div>
-<% end %>
-
      <table class="table table-hover table-condensed">
       <thead>
         <th>Folio</th>
@@ -25,10 +21,12 @@
       <tbody>
        <% @appointments.each do |a| %>
           <tr class='{{$tachado}}'>
-            <td><%= a.id %></td>
-          
-            <td><%= a.patient.name %> <%= a.patient.father_lastname %> <%= a.patient.mother_lastname %> <br> <strong><small><%= a.patient.rfc %> /<%a.patient.type %></small></strong></td>
-     		     <td><%= a.horario %></td>
+            <td><%= a.id.to_s.rjust(7, '0') %></td>
+            <td><%= a.patient.fullname %> <br> 
+              <strong><small><%= a.patient.rfc %> /<%= a.patient.type.code.to_s.rjust(2, '0') %></small></strong>
+            </td>
+     		    <td><%= a.horario %></td>
+            
             <td>
 
             <a class="panelColorGreen" href="{{ route('admin.citas.concretada', [$medico->slug , $date, $cita->id]) }}">

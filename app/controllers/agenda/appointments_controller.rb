@@ -1,5 +1,6 @@
 class Agenda::AppointmentsController < ApplicationController
   def index
+    
     @specialty = Specialty.find(params[:especialidad_id])
     @physician = Physician.find(params[:medico_id])
    
@@ -8,7 +9,7 @@ class Agenda::AppointmentsController < ApplicationController
     else
       @date = Date.today.strftime("%Y-%m-%d")
     end
-    @appointments = Appointment.where('fecha_inicial = ?', @date)
+    @appointments = Appointment.where('fecha_inicial = ?  AND physician_id = ?', @date, @physician.id )
 
   end
 
