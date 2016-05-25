@@ -15,5 +15,6 @@
 //= require jquery-ui/datepicker
 //= require bootstrap/dropdown
 //= require bootstrap/modal
+//= require bootstrap/tab
 //= require turbolinks
 //= require_tree .

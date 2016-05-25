@@ -42,28 +42,34 @@ a:link {
 
 footer { 
   position: absolute;
+  right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 20px;
-  background-color: #E9EAED;
+  background-color: #4E5D6C;
   text-align: center;
+ }
+
+ .text-white, a:hover{
+  color: white
+
  }
 
 
 .blink {
-color: red;
-  animation: blink 1s steps(5, start) infinite;
-  -webkit-animation: blink 1s steps(5, start) infinite;
-}
-@keyframes blink {
-  to {
-    visibility: hidden;
+  color: red;
+    animation: blink 1s steps(5, start) infinite;
+    -webkit-animation: blink 1s steps(5, start) infinite;
   }
-}
-@-webkit-keyframes blink {
-  to {
-    visibility: hidden;
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink {
+    to {
+      visibility: hidden;
   }
 }
 

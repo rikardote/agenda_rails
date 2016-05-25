@@ -1,9 +1,9 @@
 <div class="row">
 	<% @specialties.each do |e| %>
 		<div class="col-md-6 col-md-4">
-			<div class="w3-card-8 w3-blue  panel panel-primary">
+			<div class="w3-card-8 w3-green">
 				
-				<h4 class="text-center"><%= link_to e.name, agenda_especialidad_path(e) %></h4>
+				<h4 class="text-center"><%= link_to e.name, agenda_especialidad_path(e), class: "text-white" %></h4>
 				
 			</div>
 		</div>

@@ -1,24 +1,27 @@
-<h1 class="alert alert-success">Pacientes</h1>
 <div class="container">
-	<table class="table table-condensed">
-		<thead>
-			<th>RFC</th>		
-			<th>Nombre</th>		
-			<th>Accion</th>		
-		</thead>
-		<tbody>
-			<% @patients.each do |patient| %>
-				<tr>
-				  <td>	<%= patient.rfc %> </td>
-					<td>  <%= patient.name %>	<%= patient.father_lastname %> <%= patient.mother_lastname %> </td>
-					<td>	
-					<%=link_to "Mostrar", patient_path(patient) %> / 
-					<%=link_to "Editar", edit_patient_path(patient) %> / 
-					<%=link_to "Borrar", patient_path(patient), method: :delete, data: { confirm: "Estas seguro?" } %>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+<h1 class="alert alert-success">Pacientes</h1>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<table class="table table-condensed">
+				<thead>
+					<th>RFC</th>		
+					<th>Nombre</th>		
+					<th>Accion</th>		
+				</thead>
+				<tbody>
+					<% @patients.each do |patient| %>
+						<tr>
+						  <td>	<%= patient.rfc %> </td>
+							<td>  <%= patient.name %>	<%= patient.father_lastname %> <%= patient.mother_lastname %> </td>
+							<td>	
+							<%=link_to "Editar", edit_patient_path(patient) %> / 
+							<%=link_to "Borrar", patient_path(patient), method: :delete, data: { confirm: "Estas seguro?" } %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	<%=link_to "Nuevo Paciente", new_patient_path %>
 </div>

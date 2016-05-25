@@ -1,10 +1,10 @@
-<div class="form-group">
 	<%= simple_form_for @physician do |f| %>
 		<%= f.input :num_empleado, label: "Numero de empleado"  %>
 		<%= f.input :name, label: "Nombre"  %>
 		<%= f.input :father_lastname, label: "Apellido Paterno" %>
 		<%= f.input :mother_lastname, label: "Apellido Materno" %>
 		<%= f.collection_select :specialty_id, Specialty.order('name ASC'), :id, :name, {prompt: "Selecciona una especialidad"}, {class: "form-control"}%>
+		<br>
 		<%= f.button :submit, class: 'btn btn-primary'%>
+		
 	<% end %>
-</div>

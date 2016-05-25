@@ -9,6 +9,8 @@
          
             <%= link_to 'Agendar Cita', new_agenda_especialidad_medico_appointment_path(@specialty, @physician, :date => @date), remote: true, class: "btn btn-primary " %>
               <div class="label label-warning pull pull-right"><%= Date.parse(@date).strftime("%d/%m/%Y") %></div>
+              <div class="label label-warning pull pull-left">Hay <%= @appointments.count %> Citas</div>
+
           </div>
         </div>
      <table class="table table-hover table-condensed">

@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Types</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @types.each do |type| %>
-      <tr>
-        <td><%= type.code %></td>
-        <td><%= type.description %></td>
-        <td><%= link_to 'Show', type %></td>
-        <td><%= link_to 'Edit', edit_type_path(type) %></td>
-        <td><%= link_to 'Destroy', type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Type', new_type_path %>
+<div class="container">
+<h1 class="alert alert-success">Tipos</h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-condensed">
+        <thead>
+          <th>Codigo</th>   
+          <th>Descripcion</th>   
+          <th>Accion</th>   
+        </thead>
+        <tbody>
+          <% @types.each do |type| %>
+            <tr>
+              <td><%= type.code.to_s.rjust(2, '0') %></td>
+              <td><%= type.description %></td>
+              <td>  
+                  <%=link_to "Editar", edit_type_path(type) %> / 
+                  <%=link_to "Borrar", type_path(type), method: :delete, data: { confirm: "Estas seguro?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%=link_to "Nuevo Tipo", new_type_path %>
+</div>

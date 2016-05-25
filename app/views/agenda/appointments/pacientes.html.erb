@@ -2,24 +2,36 @@
 <strong>Pacientes: </strong>
 	<br>
 	<br>
-	<% @patient.each do |patient| %>
-		<%= patient.rfc %> 
-		<%= patient.name %>	<%= patient.father_lastname %> <%= patient.mother_lastname %>
+	<div class="row">
 		
-			<%= form_tag(agenda_especialidad_medico_appointments_path, method: :post) do %>
-				<div class="form-group">
-					<%= text_field_tag :fecha_inicial, params[:date], class: "form-control", readonly: true %>
-				</div>
-				<div class="form-group">
-					<%= text_field_tag :horario, [],class: "form-control" %>
-				</div>
-				<div class="form-group">
-					<%= submit_tag "Registrar", :name => nil, class: "btn btn-primary" %>
-				</div>
-				<%= hidden_field_tag :patient_id, patient.id %>
-				<%= hidden_field_tag :physician_id, params[:medico_id] %>
+		<div class="col-md-6">	
+			<ul class="nav nav-pills">
+			<% @patient.each do |patient| %>
+			
+			  <li><a data-toggle="pill" href="#<%= patient.id %>"><%= patient.fullname %> /<%= patient.type.code.to_s.rjust(2, '0') %></a></li>
+			  <div class="tab-content">
+				  <div id="<%= patient.id %>" class="tab-pane fade">
+				  	
+					<%= form_tag(agenda_especialidad_medico_appointments_path, method: :post) do %>
+						<div class="form-group">
+							<%= text_field_tag :fecha_inicial, params[:date], class: "form-control", readonly: true %>
+						</div>
+						<div class="form-group">
+							<%= text_field_tag :horario, [],class: "form-control" %>
+						</div>
+						<div class="form-group">
+							<%= submit_tag "Registrar", :name => nil, class: "btn btn-primary" %>
+						</div>
+						<%= hidden_field_tag :patient_id, patient.id %>
+						<%= hidden_field_tag :physician_id, params[:medico_id] %>
+					<% end %>
+
+				  </div>
+				</div>		
 			<% end %>
-	<% end %>
+		</ul>
+	</div>	
+</div>
 <% end %>
 
-<%= link_to "Cancelar Registro", agenda_especialidad_medico_appointments_path%>
+	<%= link_to "Cancelar Registro", agenda_especialidad_medico_appointments_path, class: "btn btn-info" %>

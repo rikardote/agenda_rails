@@ -1,26 +1,29 @@
-<h1 class="alert alert-success">Medicos</h1>
 <div class="container">
-	<table class="table table-condensed">
-		<thead>
-			<th>Num Empleado</th>		
-			<th>Nombre</th>
-			<th>Especialidad</th>
-			<th>Accion</th>		
-		</thead>
-		<tbody>
-			<% @physicians.each do |physician| %>
-				<tr>
-					<td>  <%= physician.num_empleado %> </td>
-					<td>  <%= physician.name %>	<%= physician.father_lastname %> <%= physician.mother_lastname %> </td>
-					<td>  <%= physician.specialty.name %> </td>
-					<td>	
-						<%=link_to "Mostrar", physician_path(physician) %> / 
-						<%=link_to "Editar", edit_physician_path(physician) %> / 
-						<%=link_to "Borrar", physician_path(physician), method: :delete, data: { confirm: "Estas seguro?" } %>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-	<%=link_to "Nueva Especialidad", new_physician_path %>
+	<h1 class="alert alert-success">Medicos</h1>
+	  <div class="panel panel-default">
+	    <div class="panel-body">
+			<table class="table table-condensed">
+				<thead>
+					<th>Num Empleado</th>		
+					<th>Nombre</th>
+					<th>Especialidad</th>
+					<th>Accion</th>		
+				</thead>
+				<tbody>
+					<% @physicians.each do |physician| %>
+						<tr>
+							<td>  <%= physician.num_empleado %> </td>
+							<td>  <%= physician.name %>	<%= physician.father_lastname %> <%= physician.mother_lastname %> </td>
+							<td>  <%= physician.specialty.name %> </td>
+							<td>	
+								<%=link_to "Editar", edit_physician_path(physician) %> / 
+								<%=link_to "Borrar", physician_path(physician), method: :delete, data: { confirm: "Estas seguro?" } %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<%=link_to "Nuevo Medico", new_physician_path %>
 </div>
