@@ -43,6 +43,6 @@ class PhysiciansController < ApplicationController
       params.require(:physician).permit(:num_empleado, :name, :father_lastname, :mother_lastname,:specialty_id)
     end
     def find_physician
-      @physician = Physician.find(params[:id])      
+      @physician = Physician.friendly.find(params[:id])     
     end
 end

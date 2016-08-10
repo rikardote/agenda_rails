@@ -1,6 +1,6 @@
 class Agenda::EspecialidadController < ApplicationController
-	def show
-	  	@specialty_id = Specialty.find(params[:id])
-	  	@physicians = Physician.where("specialty_id" => @specialty_id)
+	def index
+	  	@specialty = Specialty.find_by_slug(params[:specialty_slug])
+	  	@physicians = Physician.where("specialty_id" => @specialty.id)
   end
 end

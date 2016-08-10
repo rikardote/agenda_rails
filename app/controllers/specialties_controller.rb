@@ -43,7 +43,7 @@ class SpecialtiesController < ApplicationController
       params.require(:specialty).permit(:name)
     end
     def find_specialty
-      @specialty = Specialty.find(params[:id])      
+      @specialty = Specialty.friendly.find(params[:id])   
     end
 
 end

@@ -1,9 +1,7 @@
 class Agenda::AppointmentsController < ApplicationController
+  before_action :find_specialty_physician, only: [:index, :create]
+
   def index
-    
-    @specialty = Specialty.find(params[:especialidad_id])
-    @physician = Physician.find(params[:medico_id])
-   
     if params[:date]
       @date = params[:date]
     else
@@ -23,16 +21,16 @@ class Agenda::AppointmentsController < ApplicationController
   end
 
   def create
+    
     @appointment = Appointment.new
     @appointment.fecha_inicial = params[:fecha_inicial]
     @appointment.patient_id = params[:patient_id]
-    @appointment.physician_id = params[:physician_id]
+    @appointment.physician_id = @physician.id
     @appointment.horario = params[:horario]
 
     if @appointment.save
-      @specialty = Specialty.find(params[:especialidad_id])
-      @physician = Physician.find(params[:medico_id])
-      redirect_to agenda_especialidad_medico_appointments_path(:date => @appointment.fecha_inicial)
+      
+      redirect_to agenda_especialidad_medico_path(:date => @appointment.fecha_inicial)
     else
       render 'new'
     end
@@ -45,6 +43,7 @@ class Agenda::AppointmentsController < ApplicationController
   end
 
   def pacientes
+
     if params[:search]
       @patient = Patient.search(params[:search])
     end
@@ -64,6 +63,10 @@ class Agenda::AppointmentsController < ApplicationController
   private
     def appointment_params
       params.require(:appointment).permit(:patient_id, :physician_id, :fecha_inicial, :horario)
+    end
+    def find_specialty_physician
+      @specialty = Specialty.find_by_slug(params[:specialty_slug])
+      @physician = Physician.find_by_slug(params[:physician_slug])
     end
    
 

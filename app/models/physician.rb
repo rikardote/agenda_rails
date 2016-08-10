@@ -1,8 +1,14 @@
 class Physician < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :full_name, use: :slugged
   belongs_to :specialty
   #has_many :patients, :through => :appointments
 
   before_save :capitalize_attributes
+  
+  def full_name
+    "#{father_lastname} #{mother_lastname} #{name}"
+  end
 
 	private
 	   def capitalize_attributes

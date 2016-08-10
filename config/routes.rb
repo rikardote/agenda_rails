@@ -8,17 +8,33 @@ Rails.application.routes.draw do
  
   get 'agenda', to: 'agenda#index'
   
+  #namespace :agenda do
+  #  resources :especialidad do
+  #    resources :medico do
+  #      resources :appointments do
+  #        collection do
+  #          get :pacientes
+  #        end
+  #      end
+  #    end
+  #  end
+  #end
   namespace :agenda do
-    resources :especialidad do
-      resources :medico do
-        resources :appointments do
-          collection do
-            get :pacientes
-          end
-        end
-      end
-    end
+    get "/:specialty_slug" => 'especialidad#index', as: :especialidad
   end
+  namespace :agenda do
+    get "/:specialty_slug/:physician_slug" => 'appointments#index', as: :especialidad_medico
+  end
+  namespace :agenda do
+    get "/:specialty_slug/:physician_slug/:date" => 'appointments#new', as: :capturar
+  end
+  namespace :agenda do
+    post "/:specialty_slug/:physician_slug/" => 'appointments#pacientes', as: :search
+  end
+  namespace :agenda do
+    post "/:specialty_slug/:physician_slug/crear" => 'appointments#create', as: :create
+  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

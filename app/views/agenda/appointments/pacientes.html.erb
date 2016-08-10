@@ -12,7 +12,7 @@
 			  <div class="tab-content">
 				  <div id="<%= patient.id %>" class="tab-pane fade">
 				  	
-					<%= form_tag(agenda_especialidad_medico_appointments_path, method: :post) do %>
+					<%= form_tag(agenda_create_path, method: :post) do %>
 						<div class="form-group">
 							<%= text_field_tag :fecha_inicial, params[:date], class: "form-control", readonly: true %>
 						</div>
@@ -24,7 +24,7 @@
 							<%= submit_tag "Registrar", :name => nil, class: "btn btn-primary" %>
 						</div>
 						<%= hidden_field_tag :patient_id, patient.id %>
-						<%= hidden_field_tag :physician_id, params[:medico_id] %>
+						<%= hidden_field_tag :physician_id, params[:medico_slug] %>
 						 <script>
 							$('#<%= iden %>').timepicker({ 
 								'step': 20,
@@ -46,4 +46,4 @@
 </div>
 <% end %>
 
-	<%= link_to "Cancelar Registro", agenda_especialidad_medico_appointments_path, class: "btn btn-info" %>
+	<%= link_to "Cancelar Registro", "#", class: "btn btn-info" %>

@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="exampleModalLabel">Buscar Paciente</h4>
       </div>
       <div class="modal-body">
-        <%= form_tag(pacientes_agenda_especialidad_medico_appointments_path, :method => "get", id: "search-form", :enforce_utf8 => false) do %>
+        <%= form_tag(agenda_search_path, :method => "post", id: "search-form", :enforce_utf8 => false) do %>
         <%= hidden_field_tag :date, @date %>
 
 			

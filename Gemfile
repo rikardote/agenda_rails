@@ -31,14 +31,9 @@ gem 'quiet_assets', '~> 1.1'
 gem 'pry', '~> 0.10.3'
 gem 'awesome_print', '~> 1.6', '>= 1.6.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'friendly_id', '~> 5.1.0'
 
 
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.1.2'
-gem 'capistrano-rails', '~> 1.1.1'
-
-# Add this if you're using rbenv
- gem 'capistrano-rbenv', github: "capistrano/rbenv"
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 

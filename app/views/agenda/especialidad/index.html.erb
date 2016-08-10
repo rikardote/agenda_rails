@@ -1,0 +1,11 @@
+<div class="row">
+  <% @physicians.each do |p| %>
+    <div class="col-md-6 col-md-4">
+      <div class="w3-card-8 w3-green">
+        
+        <h4 class="text-center"><%= link_to p.full_name, agenda_especialidad_medico_path(@specialty.slug, p.slug), class: "text-white" %></h4>
+        
+      </div>
+    </div>
+  <% end %>
+</div>
